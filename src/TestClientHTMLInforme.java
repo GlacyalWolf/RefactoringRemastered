@@ -20,7 +20,7 @@ public class TestClientHTMLInforme {
         nouClient.afegeix(L5);
         nouClient.afegeix(L6);
 
-        String informe = nouClient.htmlinforme();
+        String informe = new InformeDeClient(nouClient).htmlinforme();
         String resultat = "<h1>Informe de lloguers</h1>\n" +
                 "<p>Informe de lloguers del client <em>Isma</em> (<strong>12333211123L</strong>)</p>\n" +
                 "<table>\n" +
@@ -45,7 +45,7 @@ public class TestClientHTMLInforme {
         nouClient.afegeix(L4);
 
 
-        String informe = nouClient.htmlinforme();
+        String informe = new InformeDeClient(nouClient).htmlinforme();
         String resultat = "<h1>Informe de lloguers</h1>\n" +
                 "<p>Informe de lloguers del client <em>Isma</em> (<strong>12333211123L</strong>)</p>\n" +
                 "<table>\n" +

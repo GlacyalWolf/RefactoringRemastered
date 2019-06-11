@@ -43,59 +43,10 @@ import java.util.Vector;
         }
 
 
-        public String informe() {
-
-            return new InformeDeClient(this).informe();
-        }
-
-
-
-        public double importTotal(){
-            double total = 0;
-            for (Lloguer lloguer: lloguers) {
-                total += lloguer.quantitat() * 30;
-            }
-            return total;
-        }
-        public int bonificacionsTotals(){
-            int boni=0;
-            for (Lloguer lloguers:lloguers){
-                boni += lloguers.bonificacions();
-            }
-            return boni;
-        }
 
 
 
 
-        //html
-
-        public String htmlinforme() {
-            return new InformeDeClient(this).htmlinforme();
-        }
-
-
-        public String htmlcomposaCapsalera() {
-            String resultat = "<h1>Informe de lloguers</h1>\n" +
-                    "<p>Informe de lloguers del client <em>" + getNom() + "</em> (<strong>" + getNif() + "</strong>)</p>\n";
-            return resultat;
-        }
-
-        public String htmlcomposaDetall() {
-            String resultat = "<table>\n<tr><td><strong>Marca</strong></td><td><strong>Model</strong></td><td><strong>Import</strong></td></tr>";
-            for (Lloguer lloguer: lloguers) {
-                resultat += "<tr><td>" + lloguer.getVehicle().getMarca() + "</td><td>" + lloguer.getVehicle().getModel() + "</td><td>" + (lloguer.quantitat() * 30) + "€" + "</td></tr>\n";
-
-            }
-            resultat += "</table>\n";
-            return resultat;
-        }
-
-        public String htmlcomposaPeu() {
-            String resultat = "<p>Import a pagar: <em>" + importTotal() + "€</em></p>\n"
-                    + "<p>Punts guanyats: <em>" + bonificacionsTotals() + "</em></p>\n";
-            return resultat;
-        }
 
 
     }
