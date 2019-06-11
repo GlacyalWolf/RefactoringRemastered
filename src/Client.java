@@ -44,9 +44,8 @@ import java.util.Vector;
 
 
         public String informe() {
-            return composaCapsalera() +
-                    composaDetall() +
-                    composaPeu();
+
+            return new InformeDeClient(this).informe();
         }
 
 
@@ -66,41 +65,13 @@ import java.util.Vector;
             return boni;
         }
 
-        private String composaCapsalera(){
-            String resultat = "Informe de lloguers del client " +
-                    getNom() +
-                    " (" + getNif() + ")\n";
-            return resultat;
-        }
-        private String composaDetall(){
-            String resultat="";
-            for (Lloguer lloguer: lloguers) {
 
 
-                resultat += "\t" +
-                        lloguer.getVehicle().getMarca() +
-                        " " +
-                        lloguer.getVehicle().getModel() + ": " +
-                        (lloguer.quantitat() * 30) + "€" + "\n";
-
-
-
-            }
-            return resultat;
-        }
-        private String composaPeu(){
-
-            String resultat = "Import a pagar: " + importTotal()+ "€\n" +
-                    "Punts guanyats: " + bonificacionsTotals() + "\n";
-            return resultat;
-        }
 
         //html
 
         public String htmlinforme() {
-            return htmlcomposaCapsalera() +
-                    htmlcomposaDetall() +
-                    htmlcomposaPeu();
+            return new InformeDeClient(this).htmlinforme();
         }
 
 
