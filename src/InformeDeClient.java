@@ -1,13 +1,18 @@
 import java.util.Vector;
 
+import static java.lang.String.format;
+
 public class InformeDeClient {
 
     public Client a;
+    private String textcap="Informe de lloguers del client %s (%s)%n";
+
 
 
 
     public InformeDeClient(Client a){
         this.a=a;
+
     }
 
 
@@ -16,6 +21,7 @@ public class InformeDeClient {
         return composaCapsalera(a) +
                 composaDetall() +
                 composaPeu();
+
     }
 
     public double importTotal(){
@@ -37,7 +43,9 @@ public class InformeDeClient {
         String resultat = "Informe de lloguers del client " +
                 a.getNom() +
                 " (" + a.getNif() + ")\n";
-        return resultat;
+
+        String cap = String.format(textcap,a.getNom(),a.getNif());
+        return cap;
     }
     public String composaDetall(){
         String resultat="";
